@@ -19,17 +19,18 @@ public class TopKFrequentElementsTest {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter numbers separated by commas:");
-        String input = scanner.nextLine().trim();
-        String[] numStrs = input.split("\\s*,\\s*");
-        int[] nums = Arrays.stream(numStrs).mapToInt(Integer::parseInt).toArray();
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Enter numbers separated by commas:");
+            String input = scanner.nextLine().trim();
+            String[] numStrs = input.split("\\s*,\\s*");
+            int[] nums = Arrays.stream(numStrs).mapToInt(Integer::parseInt).toArray();
 
-        System.out.println("Enter the value of k:");
-        int k = scanner.nextInt();
+            System.out.println("Enter the value of k:");
+            int k = scanner.nextInt();
 
-        TopKFrequentElementsTest test = new TopKFrequentElementsTest();
-        int[] result = test.topKFrequent(nums, k);
-        System.out.println("Top " + k + " frequent elements: " + Arrays.toString(result));
+            TopKFrequentElementsTest test = new TopKFrequentElementsTest();
+            int[] result = test.topKFrequent(nums, k);
+            System.out.println("Top " + k + " frequent elements: " + Arrays.toString(result));
+        }
     }
 }

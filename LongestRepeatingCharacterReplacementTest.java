@@ -27,14 +27,15 @@ public class LongestRepeatingCharacterReplacementTest {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a string:");
-        String input = scanner.nextLine();
-        System.out.println("Enter the value of k:");
-        int k = scanner.nextInt();
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Enter a string:");
+            String input = scanner.nextLine();
+            System.out.println("Enter the value of k:");
+            int k = scanner.nextInt();
 
-        LongestRepeatingCharacterReplacementTest test = new LongestRepeatingCharacterReplacementTest();
-        int result = test.characterReplacement(input, k);
-        System.out.println("Length of the longest substring after replacement: " + result);
-    }
+            LongestRepeatingCharacterReplacementTest test = new LongestRepeatingCharacterReplacementTest();
+            int result = test.characterReplacement(input, k);
+            System.out.println("Length of the longest substring after replacement: " + result);
+        }
+    }  
 }

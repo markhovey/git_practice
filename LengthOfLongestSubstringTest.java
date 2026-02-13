@@ -28,10 +28,11 @@ public class LengthOfLongestSubstringTest {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a string:");
-        String input = scanner.nextLine();
-        int result = lengthOfLongestSubstring(input);
-        System.out.println("Length of the longest substring without repeating characters: " + result);
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Enter a string:");
+            String input = scanner.nextLine();
+            int result = lengthOfLongestSubstring(input);
+            System.out.println("Length of the longest substring without repeating characters: " + result);
+        }
     }
 }

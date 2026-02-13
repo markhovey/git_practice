@@ -23,26 +23,26 @@ public class SubarraySumTest {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Enter numbers separated by spaces or commas:");
+            String line = scanner.nextLine().trim();
+            if (line.isEmpty()) {
+                System.out.println("No numbers provided.");
+                return;
+            }
 
-        System.out.println("Enter numbers separated by spaces or commas:");
-        String line = scanner.nextLine().trim();
-        if (line.isEmpty()) {
-            System.out.println("No numbers provided.");
-            return;
+            String[] parts = line.split("[,\\s]+");
+
+            int[] nums = new int[parts.length];
+            for (int i = 0; i < parts.length; i++) {
+                nums[i] = Integer.parseInt(parts[i].trim());
+            }
+
+            System.out.print("Enter k: ");
+            int k = scanner.nextInt();
+
+            int result = subarraySum(nums, k);
+            System.out.println("Number of subarrays = " + result);
         }
-
-        String[] parts = line.split("[,\\s]+");
-
-        int[] nums = new int[parts.length];
-        for (int i = 0; i < parts.length; i++) {
-            nums[i] = Integer.parseInt(parts[i].trim());
-        }
-
-        System.out.print("Enter k: ");
-        int k = scanner.nextInt();
-
-        int result = subarraySum(nums, k);
-        System.out.println("Number of subarrays = " + result);
     }
 }

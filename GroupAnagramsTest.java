@@ -16,12 +16,13 @@ public class GroupAnagramsTest {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter strings separated by commas:");
-        String input = scanner.nextLine().trim();
-        String[] strs = input.split("\\s*,\\s*");
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Enter strings separated by commas:");
+            String input = scanner.nextLine().trim();
+            String[] strs = input.split("\\s*,\\s*");
 
-        List<List<String>> result = groupAnagrams(strs);
-        System.out.println("Grouped anagrams: " + result);
+            List<List<String>> result = groupAnagrams(strs);
+            System.out.println("Grouped anagrams: " + result);
+        }
     }
 }

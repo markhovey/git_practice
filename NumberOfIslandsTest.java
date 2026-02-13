@@ -35,18 +35,19 @@ public class NumberOfIslandsTest {
     }
     
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the grid (rows separated by new lines, '1' for land and '0' for water):");
-        List<char[]> gridList = new ArrayList<>();
-        String line;
-        while (!(line = scanner.nextLine()).isEmpty()) {
-            gridList.add(line.toCharArray());
-        }
-        char[][] grid = gridList.toArray(new char[0][]);
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Enter the grid (rows separated by new lines, '1' for land and '0' for water):");
+            List<char[]> gridList = new ArrayList<>();
+            String line;
+            while (!(line = scanner.nextLine()).isEmpty()) {
+                gridList.add(line.toCharArray());
+            }
+            char[][] grid = gridList.toArray(new char[0][]);
 
-        NumberOfIslandsTest test = new NumberOfIslandsTest();
-        int result = test.numIslands(grid);
-        System.out.println("Number of islands: " + result);
+            NumberOfIslandsTest test = new NumberOfIslandsTest();
+            int result = test.numIslands(grid);
+            System.out.println("Number of islands: " + result);
+        }
     }
 }
 
